@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Abstracts */
+@import 'scss/abstracts/variables';
+@import 'scss/abstracts/mixins';
+@import 'scss/abstracts/functions';
+
+/* Base */
+@import 'scss/base/animations';
+@import 'scss/base/base';
+@import 'scss/base/typography';
+@import 'scss/base/utilities';
+
+/*Components*/
+@import 'layout/header/header.component.scss';
