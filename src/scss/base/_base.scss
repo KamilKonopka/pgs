@@ -24,8 +24,11 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   font-family: $font-roboto;
+
 
   @include respond(tab-port) {
       padding: 0;
