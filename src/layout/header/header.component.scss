@@ -1,5 +1,43 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/base/_utilities.scss';
 
 * {
   color: $primary-color;
 }
+
+.header {
+
+    border-bottom: 1.3px solid $grey-shadow;
+}
+.navigation {
+  &__list {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    padding-bottom: 1rem;
+  }
+  &__item {
+      display: inline-block;
+      list-style: none;
+      text-transform: uppercase;
+      text-align: center;
+      display: inline;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $secondary-color;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 5rem;
+      }
+
+      &:hover,
+      &:active {
+        color: $primary-color;
+        padding-bottom: 0.8rem;
+        border-bottom: 3px solid $primary-color;
+      }
+    }
+}
+
