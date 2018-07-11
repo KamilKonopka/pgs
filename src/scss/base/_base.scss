@@ -6,6 +6,7 @@
 }
 
 html {
+  height: 100%;
   // this definces what 1rem is
   font-size: 62.5%; // 10px
 
@@ -24,16 +25,15 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  height: 100%;
   box-sizing: border-box;
   font-family: $font-roboto;
-
 
   @include respond(tab-port) {
       padding: 0;
   }
 }
+
 
 ::selection {
   background-color: $primary-color;

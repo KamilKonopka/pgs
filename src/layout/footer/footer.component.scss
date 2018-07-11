@@ -1,7 +1,23 @@
 @import '../../scss/abstracts/variables';
 @import '../../scss/base/_utilities.scss';
 
+
 .footer {
   background-color: $grey-dark;
+  box-shadow: 0 -.2rem .2rem 0 rgba($grey-medium, 0.2);
   color: $grey-light;
+  display: flex;
+  .container {
+    width: 20%;
+  }
+  &__box {
+    text-align: center;
+    &--content {
+      border-top: 1px solid $secondary-color;
+      padding-top: 1rem;
+    }
+  }
+
+
+
 }

@@ -1,5 +1,5 @@
 .container {
-  max-width: 1200px;
+  max-width: 1166px;
   display:flex;
   flex-direction: column;
   align-content: center;
@@ -8,3 +8,6 @@
 
 .u-margin-top { margin-top: 3rem; }
 .u-margin-bottom { margin-bottom: 3rem; }
+.u-flex-1 {
+  flex:1;
+}
