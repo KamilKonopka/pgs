@@ -6,7 +6,7 @@
 }
 
 .header {
-  background-color: $color-white;
+  background-color: $color-white-dirty;
     border-bottom: 1.3px solid $grey-shadow;
 }
 .navigation {
@@ -25,7 +25,6 @@
       display: inline;
       font-size: 1.2rem;
       font-weight: 600;
-      text-decoration: none;
       color: $secondary-color;
       cursor: pointer;
 
@@ -33,8 +32,18 @@
         margin-right: 5rem;
       }
 
+
+    }
+
+    &__link {
+      text-decoration: none;
+      &:link,
+      &:visited {
+        color: $secondary-color;
+      }
       &:hover,
-      &:active {
+      &:active,
+      &:focus {
         color: $primary-color;
         padding-bottom: 0.75rem;
         border-bottom: 3px solid $primary-color;
