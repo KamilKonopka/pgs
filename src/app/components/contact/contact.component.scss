@@ -1,0 +1,58 @@
+@import '../../../scss/abstracts/variables';
+@import '../../../scss/base/_utilities.scss';
+
+.section {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__box {
+    display: flex;
+
+    align-items: center;
+    padding: 5rem 7rem;
+    box-shadow: $box-shadow;
+    line-height: 1;
+    background-color: $color-white;
+    border-radius: 3px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &--input {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid $grey-light;
+      padding-bottom: .6rem;
+      margin: 1rem 0;
+      min-width: 18rem;
+      font-family: $font-roboto;
+      font-size: 1.2rem;
+      color: $grey-light;
+      transition: all .5s;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
+
+      &:focus:invalid {
+        border-bottom: 3px solid $grey-dark;
+      }
+    }
+
+    &--button {
+      padding: .8rem 2rem;
+      color: $color-white;
+      background-color: $tertiary-color;
+      border: none;
+      max-width: 8rem;
+      border-radius: 3px;
+      box-shadow: .2rem .1rem .1rem rgba($grey-dark, .2);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}

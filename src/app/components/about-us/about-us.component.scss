@@ -10,7 +10,7 @@
     .card {
       width: 33.3%;
       background-color: $color-white;
-      box-shadow: 0 .1rem .1rem rgba($grey-dark, .2);
+      box-shadow: $box-shadow;
       line-height: 0.7;
       &:not(:last-child) {
         margin-right: 4rem;

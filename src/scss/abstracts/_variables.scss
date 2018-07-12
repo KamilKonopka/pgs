@@ -1,5 +1,6 @@
 $primary-color: #ff7726;
 $secondary-color: #545454;
+$tertiary-color: #2196f3;
 $color-white: #ffffff;
 $color-white-dirty: #f8f8f8;
 $grey-light: #a1a1a1;
@@ -9,3 +10,5 @@ $grey-shadow: #dbdbdb;
 // font
 $default-font-size: 1.6rem;
 $font-roboto: 'Roboto', sans-serif;
+//shadow
+$box-shadow: 0 .2rem .2rem rgba($grey-dark, .2);
