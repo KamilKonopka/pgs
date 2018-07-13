@@ -5,7 +5,14 @@
   transform: translate(-50%, -50%);
 }
 
-
+@mixin card {
+  background-color: $color-white;
+  box-shadow: $box-shadow;
+  line-height: 0.7;
+  &:not(:last-child) {
+    margin-right: 4rem;
+  }
+}
 // Media query manager
 /*
 0 - 320px Phone-small

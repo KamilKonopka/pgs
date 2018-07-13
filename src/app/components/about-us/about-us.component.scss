@@ -1,4 +1,5 @@
 @import '../../../scss/abstracts/variables';
+@import '../../../scss/abstracts/mixins';
 @import '../../../scss/base/utilities';
 @import '../../../scss/base/typography';
 
@@ -9,12 +10,7 @@
     justify-content: space-between;
     .card {
       width: 33.3%;
-      background-color: $color-white;
-      box-shadow: $box-shadow;
-      line-height: 0.7;
-      &:not(:last-child) {
-        margin-right: 4rem;
-      }
+      @include card;
 
       &__img {
         width: 100%;
