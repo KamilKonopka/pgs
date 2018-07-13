@@ -8,7 +8,9 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./skicams.component.scss']
 })
 export class SkicamsComponent implements OnInit {
-  camsData = {};
+  cam1Data: {Balme};
+  cam2Data = {};
+  camsArray = [];
   constructor(public http: ApiService) { }
 
   ngOnInit() {
@@ -17,8 +19,25 @@ export class SkicamsComponent implements OnInit {
 
   getCamsData() {
     this.http.getHttp().subscribe(data => {
-      this.camsData = data;
-      console.log(this.camsData);
+      this.cam1Data = data[26];
+      this.cam2Data = data[216];
+      console.log(this.cam1Data, this.cam2Data);
     });
   }
 }
+
+export interface Balme {
+  cams: {
+    111: {
+      name: 'string';
+      url: 'string';
+    };
+    112: {
+      name: 'string';
+      url: 'string';
+    }
+  };
+  name: 'string';
+  prov: 'string';
+}
+
