@@ -10,10 +10,20 @@
     &__card {
       @include card;
       width: 48%;
+      position: relative;
 
       .heading-primary {
         padding-top: 2rem;
         text-align: center;
+      }
+
+      &--date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1rem .8rem;
+        font-size: 1.1rem;
+        color: $grey-light;
       }
 
       &--img {

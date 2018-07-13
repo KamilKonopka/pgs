@@ -62,7 +62,6 @@ export class SkicamsComponent implements OnInit {
     this.http.getHttp().subscribe(data => {
       this.cam1Data = data[26];
       this.cam2Data = data[216];
-      console.log(this.cam1Data, this.cam2Data);
     },
   err => {
     throwError('Cannot load the data');
