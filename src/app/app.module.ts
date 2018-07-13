@@ -10,6 +10,7 @@ import { FooterComponent } from '../layout/footer/footer.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SkicamsComponent } from './components/skicams/skicams.component';
+import { ApiService } from './services/api.service';
 
 
 
@@ -30,7 +31,7 @@ import { SkicamsComponent } from './components/skicams/skicams.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
