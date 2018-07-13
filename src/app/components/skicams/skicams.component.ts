@@ -15,6 +15,7 @@ export class SkicamsComponent implements OnInit {
   cam2Data: Bobbio;
   camsArray = [];
   dataAssigned = false;
+  date = new Date();
 
   public model1: Balme = {
     cams: {

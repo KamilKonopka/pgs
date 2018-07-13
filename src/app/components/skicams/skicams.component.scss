@@ -1,0 +1,25 @@
+@import '../../../scss/abstracts/variables';
+@import '../../../scss/abstracts/mixins';
+@import '../../../scss/base/utilities';
+@import '../../../scss/base/typography';
+
+.skicams {
+  &__cardbox {
+    display: flex;
+    flex-direction: row;
+    &__card {
+      @include card;
+      width: 48%;
+
+      .heading-primary {
+        padding-top: 2rem;
+        text-align: center;
+      }
+
+      &--img {
+        max-width: 100%;
+        object-fit: scale-down;
+      }
+    }
+  }
+}
