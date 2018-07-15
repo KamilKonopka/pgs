@@ -11,6 +11,7 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   filledFormData = new FilledContactForm();
   formStatus = true;
+  formProcessed = false;
 
   ngOnInit() {
     this.contactForm = new FormGroup({
@@ -30,6 +31,7 @@ export class ContactComponent implements OnInit {
   }
   console.log(this.filledFormData);
   // this.resetFormValues();
+  this.formProcessed = true;
   }
 
   assignValues() {

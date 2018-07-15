@@ -8,6 +8,7 @@
         <div class="section__form--error" *ngIf="!formStatus && !contactForm.get('email').valid">Wrong email address formatting!</div>
         <div class="section__form--error" *ngIf="!formStatus && contactForm.get('email').value === null">Your email is required!</div>
         <textarea type="text" class="section__form--textarea" name="Message" placeholder="Message" id="message" formControlName="message"></textarea>
+        <div class="section__form--success" *ngIf="formProcessed && contactForm.get('email').value !== null && contactForm.get('email').valid && contactForm.get('name').valid">Your form is valid!</div>
         <button type="submit" class="section__form--button">Send</button>
       </form>
     </div>
