@@ -31,6 +31,30 @@
         max-width: 100%;
         overflow: hidden;
       }
+      @include respond (phone-small) {
+        &:not(:last-child) {
+          margin-bottom: 3rem;
+        }
+      }
+      @include respond (phone) {
+        width: 100%;
+        &:not(:last-child) {
+          margin-bottom: 3rem;
+        }
+      }
+    }
+
+    @include respond (tab-land) {
+      margin: 3rem 1.2rem;
+    }
+
+    @include respond (phone) {
+      margin: 3rem 3rem;
+    }
+
+    @include respond (phone) {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

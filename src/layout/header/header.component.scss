@@ -1,5 +1,6 @@
 @import '../../scss/abstracts/variables';
-@import '../../scss/base/_utilities.scss';
+@import '../../scss/abstracts/mixins';
+@import '../../scss/base/utilities';
 
 * {
   color: $primary-color;
@@ -8,7 +9,19 @@
 .header {
     background-color: $color-white;
     border-bottom: 1.3px solid $grey-shadow;
-}
+
+    &__logo-box {
+
+      @include respond(tab-land) {
+        margin: 3rem 1.2rem;
+      }
+
+      @include respond (phone) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
 .navigation {
   &__list {
     justify-content: flex-start;
@@ -16,6 +29,17 @@
     padding: 0;
     line-height: 1;
     padding-bottom: 1rem;
+
+    @include respond (phone) {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    @include respond (phone-small) {
+      display: flex;
+      justify-content: center;
+    }
+
   }
   &__item {
       display: inline-block;
@@ -49,5 +73,13 @@
         border-bottom: 3px solid $primary-color;
       }
     }
-}
 
+      @include respond(tab-land) {
+        margin: 0 1.2rem;
+      }
+
+      @include respond (phone-small) {
+        justify-content: space-around;
+      }
+  }
+}
