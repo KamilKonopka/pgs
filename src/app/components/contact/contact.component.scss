@@ -1,14 +1,29 @@
 @import '../../../scss/abstracts/variables';
-@import '../../../scss/base/_utilities.scss';
+@import '../../../scss/abstracts/mixins';
+@import '../../../scss/base/utilities';
+
+input[required] + label,
+input[required] + label:after,
+input::-webkit-input-placeholder
+ {
+  content:'*';
+  color: red;
+}
+
+input[required] + label:after {
+  content:'*';
+  color: red;
+}
 
 .section {
-  height: 60vh;
+  height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
   &__box {
     display: flex;
-
+    width: 100%;
+justify-content: center;
     align-items: center;
     padding: 5rem 7rem;
     box-shadow: $box-shadow;
@@ -19,32 +34,24 @@
   &__form {
     display: flex;
     flex-direction: column;
+    width: 70%;
 
     &--input {
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      border-bottom: 1px solid $grey-light;
+      @include inputsStyling;
       padding-bottom: .6rem;
       margin: 1rem 0;
-      min-width: 18rem;
-      font-family: $font-roboto;
-      font-size: 1.2rem;
-      color: $grey-light;
-      transition: all .5s;
+    }
 
-      &:focus {
-        outline: none;
-        border-bottom: 1px solid $primary-color;
-      }
-
-      &:focus:invalid {
-        border-bottom: 3px solid $grey-dark;
-      }
+    &--textarea {
+      margin-top: 8rem;
+      @include inputsStyling;
+      resize: none;
+      line-height: .8;
     }
 
     &--button {
       padding: .8rem 2rem;
+      margin-top: 3rem;
       color: $color-white;
       background-color: $tertiary-color;
       border: none;
@@ -53,6 +60,12 @@
       box-shadow: .2rem .1rem .1rem rgba($grey-dark, .2);
       text-decoration: none;
       text-transform: uppercase;
+      align-self: flex-end;
+    }
+
+    &--error {
+      color: $primary-color;
+      font-size: 1.2rem;
     }
   }
 }

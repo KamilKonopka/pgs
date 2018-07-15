@@ -13,6 +13,30 @@
     margin-right: 4rem;
   }
 }
+
+@mixin inputsStyling {
+  border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid lighten($grey-light, 5%);
+      font-family: $font-roboto;
+      font-size: 1.2rem;
+      transition: all .5s;
+      color: $grey-light;
+      min-width: 18rem;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
+
+      &:focus:invalid {
+        border-bottom: 1px solid $grey-dark;
+      }
+      &::placeholder {
+        color: lighten($grey-light, 5%);
+      }
+    }
 // Media query manager
 /*
 0 - 320px Phone-small
