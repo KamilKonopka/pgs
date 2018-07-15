@@ -1,11 +1,12 @@
 <section class="section">
   <div class="container">
     <div class="section__box u-margin-top">
-      <form action="" class="section__form">
-        <input type="text" class="section__form--input" name="Name" placeholder="Name" required>
-        <input type="text" class="section__form--input" name="Email" placeholder="Email" required>
-        <input type="text" class="section__form--input" name="Message" placeholder="Message">
-        <button class="section__form--button">Send</button>
+      <form [formGroup]="contactForm" class="section__form" (ngSubmit)="validateForm()">
+        <input type="text" class="section__form--input" name="Name" placeholder="Name" id="name" formControlName="name">
+        <div class="section__form--error" *ngIf="contactForm.get('name').invalid && contactForm.get('name').dirty">Name field is required</div>
+        <input type="text" class="section__form--input" name="Email" placeholder="Email" id="email" formControlName="email">
+        <textarea type="text" class="section__form--input" name="Message" placeholder="Message" id="message" formControlName="message"></textarea>
+        <button type="submit" class="section__form--button">Send</button>
       </form>
     </div>
   </div>

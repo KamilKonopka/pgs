@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -8,9 +8,39 @@ import { ApiService } from '../../services/api.service';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  contactForm: FormGroup;
+  filledFormData = new FilledContactForm();
 
   ngOnInit() {
+    this.contactForm = new FormGroup({
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      message: new FormControl(null)
+    });
   }
 
+  validateForm() {
+  console.log(this.contactForm);
+  this.assignValues();
+  console.log(this.filledFormData);
+  this.resetFormValues();
+  }
+
+  assignValues() {
+    this.filledFormData.name = this.contactForm.value.name;
+    this.filledFormData.email = this.contactForm.value.email;
+    this.filledFormData.message = this.contactForm.value.message;
+  }
+
+  resetFormValues() {
+    this.contactForm.reset();
+  }
+}
+
+class FilledContactForm {
+  constructor (
+    public message?: string,
+    public name?: string,
+    public email?: string
+  ) {}
 }
