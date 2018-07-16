@@ -4,12 +4,14 @@
 @import '../../../scss/base/typography';
 
 .skicams {
+
   &__cardbox {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
     &__card {
       @include card;
-      width: 48%;
+      width: 50%;
       position: relative;
 
       .heading-primary {
@@ -31,6 +33,7 @@
         max-width: 100%;
         overflow: hidden;
       }
+
       @include respond (phone-small) {
         &:not(:last-child) {
           margin-bottom: 3rem;

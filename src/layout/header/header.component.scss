@@ -2,16 +2,12 @@
 @import '../../scss/abstracts/mixins';
 @import '../../scss/base/utilities';
 
-* {
-  color: $primary-color;
-}
-
 .header {
     background-color: $color-white;
     border-bottom: 1.3px solid $grey-shadow;
 
     &__logo-box {
-
+      max-width: 1166px;
       @include respond(tab-land) {
         margin: 3rem 1.2rem;
       }
@@ -61,17 +57,15 @@
 
     &__link {
       text-decoration: none;
-      &:link,
-      &:visited {
-        color: $secondary-color;
-      }
+      color: $secondary-color;
+
       &:hover,
-      &:active,
-      &:focus {
+      &--active {
         color: $primary-color;
         padding-bottom: 0.75rem;
         border-bottom: 3px solid $primary-color;
       }
+
     }
 
       @include respond(tab-land) {

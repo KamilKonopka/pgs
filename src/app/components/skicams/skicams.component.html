@@ -1,6 +1,6 @@
 <div class="skicams">
-  <div *ngIf="dataAssigned" class="container">
-    <div class="skicams__cardbox u-margin-top u-margin-bottom">
+  <div class="container">
+    <div *ngIf="dataAssigned" class="skicams__cardbox u-margin-top u-margin-bottom">
         <div class="skicams__cardbox__card">
           <h1 class="heading-primary">{{ cam1Data.name }}</h1>
           <div class="skicams__cardbox__card--date">{{date | date: 'dd/MM/yyyy' }}</div>

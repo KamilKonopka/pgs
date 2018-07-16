@@ -14,6 +14,12 @@
   }
 }
 
+@mixin box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @mixin inputsStyling {
   border-top: none;
       border-left: none;
@@ -23,7 +29,7 @@
       font-size: 1.2rem;
       transition: all .5s;
       color: $grey-light;
-      min-width: 18rem;
+      min-width: 25rem;
 
       &:focus {
         outline: none;

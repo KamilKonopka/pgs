@@ -1,8 +1,8 @@
 .container {
-  max-width: 1166px;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  align-content: center;
+  justify-content: center;
+  max-width: 1166px;
   margin: 0 auto;
 }
 
