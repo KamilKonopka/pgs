@@ -4,16 +4,15 @@
 @import '../../../scss/base/typography';
 
 .skicams {
-
   &__cardbox {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
     &__card {
+      display: flex;
+      flex-direction: column;
+      position: relative;
       @include card;
       width: 50%;
-      position: relative;
-
       .heading-primary {
         padding-top: 2rem;
         text-align: center;
@@ -27,37 +26,28 @@
         font-size: 1.1rem;
         color: $grey-light;
       }
-
       &--img {
-        object-fit: cover;
         max-width: 100%;
+        line-height: 1;
+        height: 270px;
+        object-fit: fill;
         overflow: hidden;
       }
 
-      @include respond (phone-small) {
-        &:not(:last-child) {
-          margin-bottom: 3rem;
-        }
-      }
-      @include respond (phone) {
+      @include respond(phone) {
         width: 100%;
         &:not(:last-child) {
           margin-bottom: 3rem;
         }
       }
     }
-
-    @include respond (tab-land) {
+    @include respond(tab-land) {
       margin: 3rem 1.2rem;
     }
 
-    @include respond (phone) {
-      margin: 3rem 3rem;
-    }
-
-    @include respond (phone) {
-      display: flex;
+    @include respond(phone) {
       flex-direction: column;
+      margin: 3rem 3rem;
     }
   }
 }
