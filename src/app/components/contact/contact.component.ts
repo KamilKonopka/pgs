@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
+
 export class ContactComponent implements OnInit {
 
   contactForm: FormGroup;
@@ -22,16 +23,13 @@ export class ContactComponent implements OnInit {
   }
 
   validateForm() {
-  console.log(this.contactForm);
-  this.assignValues();
-  if (this.contactForm.status === 'INVALID') {
-  this.formStatus = false;
-  } else {
-    this.formStatus = true;
-  }
-  console.log(this.filledFormData);
-  // this.resetFormValues();
-  this.formProcessed = true;
+    this.assignValues();
+    if (this.contactForm.status === 'INVALID') {
+    this.formStatus = false;
+    } else {
+      this.formStatus = true;
+    }
+    this.formProcessed = true;
   }
 
   assignValues() {

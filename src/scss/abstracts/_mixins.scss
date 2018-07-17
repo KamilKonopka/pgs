@@ -32,9 +32,6 @@
       &:focus:invalid {
         border-bottom: 1px solid $grey-dark;
       }
-      &::placeholder {
-        color: lighten($grey-light, 5%);
-      }
     }
 // Media query manager
 /*

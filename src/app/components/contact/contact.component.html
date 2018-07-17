@@ -2,9 +2,11 @@
   <div class="container">
     <div class="section__box">
       <form [formGroup]="contactForm" class="section__box__form" (ngSubmit)="validateForm()">
-        <input type="text" class="section__box__form--input" name="Name" placeholder="Name" id="name" formControlName="name" required>
+        <input type="text" class="section__box__form--input" name="Name" id="name" formControlName="name">
+        <label for="name" class="section__box__form--label" *ngIf="!contactForm.get('name').value">Name</label>
         <div class="section__box__form--error" *ngIf="!formStatus && !contactForm.get('name').valid">Name field is required!</div>
-        <input type="text" class="section__box__form--input" name="Email" placeholder="Email" id="email" formControlName="email" required>
+        <input type="text" class="section__box__form--input" name="Email" id="email" formControlName="email">
+        <label for="email" class="section__box__form--label" *ngIf="!contactForm.get('email').value">Email</label>
         <div class="section__box__form--error" *ngIf="!formStatus && !contactForm.get('email').valid">Wrong email address formatting!</div>
         <div class="section__box__form--error" *ngIf="!formStatus && contactForm.get('email').value === null">Your email is required!</div>
         <textarea type="text" class="section__box__form--textarea" name="Message" placeholder="Message" id="message" formControlName="message"></textarea>

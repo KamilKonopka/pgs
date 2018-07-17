@@ -2,18 +2,6 @@
 @import '../../../scss/abstracts/mixins';
 @import '../../../scss/base/utilities';
 
-input[required] + label,
-input[required] + label:after,
-input::-webkit-input-placeholder
- {
-  content:'*';
-  color: red;
-}
-
-input[required] + label:after {
-  content:'*';
-  color: red;
-}
 
 .section {
   min-height: 70vh;
@@ -42,12 +30,38 @@ input[required] + label:after {
       display: flex;
       flex-direction: column;
       width: 100%;
+      position: relative;
 
       &--input {
         @include inputsStyling;
         padding-bottom: .6rem;
+        margin-top: 2rem;
         margin: 1rem 0;
+        display: block;
+        transition: all .3s;
       }
+
+      &--label {
+        color: $grey-light;
+        font-size: 1.2rem;
+        font-weight: 400;
+        display: block;
+        margin-top: .7rem;
+        transform: translateY(-3.7rem);
+        transition: all .3s ease-out;
+        &:after {
+          content: ' *';
+          color: red;
+        }
+        &:hover,
+        &:visited,
+        &:active {
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(3.7rem);
+        }
+      }
+
 
       &--textarea {
         margin-top: 8rem;
