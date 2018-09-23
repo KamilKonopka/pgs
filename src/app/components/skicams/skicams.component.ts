@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Balme } from '../../interfaces/balme';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { Bobbio } from '../../interfaces/bobbio';
 
 
@@ -10,7 +10,9 @@ import { Bobbio } from '../../interfaces/bobbio';
   templateUrl: './skicams.component.html',
   styleUrls: ['./skicams.component.scss']
 })
-export class SkicamsComponent implements OnInit {
+export class SkicamsComponent implements OnInit, OnDestroy {
+
+  private subscription;
   cam1Data: Balme;
   cam2Data: Bobbio;
   camsArray = [];
@@ -23,8 +25,12 @@ export class SkicamsComponent implements OnInit {
     this.getCamsData();
   }
 
+  ngOnDestroy() {
+  this.subscription.unsubscribe();
+  }
+
   getCamsData() {
-    this.http.getHttp().subscribe(data => {
+    this.subscription = this.http.getHttp().subscribe(data => {
       this.cam1Data = data[26];
       this.cam2Data = data[216];
     },
