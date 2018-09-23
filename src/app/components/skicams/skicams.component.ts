@@ -4,7 +4,6 @@ import { Balme } from '../../interfaces/balme';
 import { throwError, Observable } from 'rxjs';
 import { Bobbio } from '../../interfaces/bobbio';
 
-
 @Component ({
   selector: 'app-skicams',
   templateUrl: './skicams.component.html',
@@ -16,7 +15,6 @@ export class SkicamsComponent implements OnInit, OnDestroy {
   cam1Data: Balme;
   cam2Data: Bobbio;
   camsArray = [];
-
   date = new Date();
 
   constructor(public http: ApiService) { }
@@ -26,7 +24,7 @@ export class SkicamsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-  this.subscription.unsubscribe();
+    this.unsubscribeFromCamsData();
   }
 
   getCamsData() {
@@ -37,6 +35,10 @@ export class SkicamsComponent implements OnInit, OnDestroy {
     err => {
       throwError('Cannot load the data');
     });
+  }
+
+  unsubscribeFromCamsData() {
+    this.subscription.unsubscribe();
   }
 }
 
