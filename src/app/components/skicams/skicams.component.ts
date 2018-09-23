@@ -14,48 +14,13 @@ export class SkicamsComponent implements OnInit {
   cam1Data: Balme;
   cam2Data: Bobbio;
   camsArray = [];
-  dataAssigned = false;
+
   date = new Date();
-
-  public model1: Balme = {
-    cams: {
-      111: {
-        name: 'string',
-        url: 'string'
-      },
-      112: {
-        name: 'string',
-        url: 'string'
-      }
-    },
-    name: 'string',
-    prov: 'string'
-  };
-
-  public model2: Bobbio = {
-    cams: {
-      604: {
-        name: 'string',
-        url: 'string'
-      },
-      605: {
-        name: 'string',
-        url: 'string'
-      },
-      606: {
-        name: 'string',
-        url: 'string'
-      }
-    },
-    name: 'string',
-    prov: 'string'
-  };
 
   constructor(public http: ApiService) { }
 
   ngOnInit() {
     this.getCamsData();
-    this.assignInterface();
   }
 
   getCamsData() {
@@ -63,17 +28,9 @@ export class SkicamsComponent implements OnInit {
       this.cam1Data = data[26];
       this.cam2Data = data[216];
     },
-  err => {
-    throwError('Cannot load the data');
-  },
-() => {
-  this.dataAssigned = true;
-  });
-}
-
-  assignInterface() {
-    Object.assign(this.model1, this.cam1Data);
-    Object.assign(this.model2, this.cam2Data);
+    err => {
+      throwError('Cannot load the data');
+    });
   }
 }
 

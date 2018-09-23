@@ -1,17 +1,17 @@
 <div class="skicams">
   <div class="container">
-  <div class="skicams__cardbox u-margin-top u-margin-bottom" *ngIf="dataAssigned">
+  <div class="skicams__cardbox u-margin-top u-margin-bottom">
     <div class=" skicams__cardbox__card">
       <div class="skicams__cardbox__card--date">{{date | date: 'dd/MM/yyyy' }}</div>
-      <h1 class="heading-primary">{{ cam1Data.name }}</h1>
-      <img class="skicams__cardbox__card--img" src="{{ cam1Data.cams[111].url }}" alt="">
-      <img class="skicams__cardbox__card--img" src="{{ cam1Data.cams[112].url }}" alt="">
+      <h1 class="heading-primary">{{ cam1Data?.name }}</h1>
+      <img class="skicams__cardbox__card--img" src="{{ cam1Data?.cams[111].url }}" alt="">
+      <img class="skicams__cardbox__card--img" src="{{ cam1Data?.cams[112].url }}" alt="">
     </div>
     <div class=" skicams__cardbox__card">
       <div class="skicams__cardbox__card--date">{{date | date: 'dd/MM/yyyy' }}</div>
-      <h1 class="heading-primary">{{ cam2Data.name }}</h1>
-        <img class="skicams__cardbox__card--img" src="{{ cam2Data.cams[604].url }}" alt="">
-        <img class="skicams__cardbox__card--img" src="{{ cam2Data.cams[605].url }}" alt="">
+      <h1 class="heading-primary">{{ cam2Data?.name }}</h1>
+        <img class="skicams__cardbox__card--img" src="{{ cam2Data?.cams[604].url }}" alt="">
+        <img class="skicams__cardbox__card--img" src="{{ cam2Data?.cams[605].url }}" alt="">
     </div>
   </div>
 </div>
