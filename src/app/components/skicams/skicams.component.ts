@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Balme } from '../../interfaces/balme';
+import { BalmeModel } from '../../interfaces/balme.model';
 import { throwError } from 'rxjs';
-import { Bobbio } from '../../interfaces/bobbio';
+import { BobbioModel } from '../../interfaces/bobbio.model';
+import {filter, map} from "rxjs/operators";
+import {CamsModel} from "../../interfaces/cams.model";
 
 @Component ({
   selector: 'app-skicams',
@@ -12,9 +14,10 @@ import { Bobbio } from '../../interfaces/bobbio';
 export class SkicamsComponent implements OnInit, OnDestroy {
 
   private subscription;
-  cam1Data: Balme;
-  cam2Data: Bobbio;
+  cam1Data: BalmeModel;
+  cam2Data: BobbioModel;
   date = new Date();
+  expectedCams: string[] = ['Bielmonte', 'Passo dello Stelvio'];
 
   constructor(public http: ApiService) { }
 
@@ -27,13 +30,20 @@ export class SkicamsComponent implements OnInit, OnDestroy {
   }
 
   getCamsData() {
-    this.subscription = this.http.getHttp().subscribe(data => {
-      this.cam1Data = data[26];
-      this.cam2Data = data[216];
-    },
-      (err) => {
-      throwError('Cannot load the data', err);
-    });
+    this.subscription = this.http.getHttp().pipe(
+      map((data) => {
+        const camsArray = Object.values(data).map(
+          (el: CamsModel) => {
+            if (this.expectedCams.includes(el.name)) {
+              return el;
+            }
+          });
+        console.log(camsArray.filter(el => el !== undefined));
+      },
+        (err) => {
+          throwError('Cannot load the data', err);
+        }),
+    ).subscribe();
   }
 
   unsubscribeFromCamsData() {

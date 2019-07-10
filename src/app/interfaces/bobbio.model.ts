@@ -1,4 +1,4 @@
-export interface Bobbio {
+export interface BobbioModel {
   cams: {
     604: {
       name: 'string';

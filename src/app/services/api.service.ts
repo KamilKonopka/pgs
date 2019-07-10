@@ -18,8 +18,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getHttp(): Observable<{Cams}> {
-    return this.http.get<{Cams}>(url, options);
+  public getHttp(): Observable<any> {
+    return this.http.get<any>(url, options);
   }
 }
 

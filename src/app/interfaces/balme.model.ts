@@ -1,4 +1,4 @@
-export interface Balme {
+export interface BalmeModel {
   cams: {
     111: {
       name: 'string';

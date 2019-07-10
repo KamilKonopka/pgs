@@ -1,4 +1,4 @@
-export interface Cams {
+export interface CamsModel {
   'name': string;
   'prov': string;
   'cams': {
