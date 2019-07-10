@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Card} from "../../interfaces/card.model";
+import {CardDataService} from "../../services/card-data.service";
 
 @Component({
   selector: 'app-about-us',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements OnInit {
+  cards: Card[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.cards = this.cardService.getCards();
   }
+
+  constructor(
+    private cardService: CardDataService,
+  ) {}
 
 }

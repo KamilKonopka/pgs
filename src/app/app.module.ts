@@ -11,6 +11,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SkicamsComponent } from './components/skicams/skicams.component';
 import { ApiService } from './services/api.service';
+import { CardComponent } from "./components/card/card.component";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ApiService } from './services/api.service';
     FooterComponent,
     AboutUsComponent,
     ContactComponent,
-    SkicamsComponent
+    SkicamsComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

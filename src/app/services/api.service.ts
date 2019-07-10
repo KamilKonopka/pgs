@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cams } from '../interfaces/cams';
 import { Observable } from 'rxjs';
 
 const url = 'https://makevoid-skicams.p.mashape.com/cams.json';
