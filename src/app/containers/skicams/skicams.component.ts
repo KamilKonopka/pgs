@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import { CamsModel } from '../../interfaces/cams.model';
+import { CamsModel } from '../../models/cams.model';
 import * as _ from 'lodash';
 
 @Component ({

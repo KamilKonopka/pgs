@@ -24,11 +24,7 @@ export class ContactComponent implements OnInit {
 
   validateForm() {
     this.assignValues();
-    if (this.contactForm.status === 'INVALID') {
-    this.formStatus = false;
-    } else {
-      this.formStatus = true;
-    }
+    this.formStatus = this.contactForm.status !== 'INVALID';
     this.formProcessed = true;
   }
 

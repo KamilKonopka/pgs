@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CamsModel } from "../../interfaces/cams.model";
+import { CamsModel } from "../../models/cams.model";
 
 @Component({
   selector: 'app-cam-box',

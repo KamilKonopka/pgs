@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { SkicamsComponent } from './components/skicams/skicams.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { AboutUsComponent } from './containers/about-us/about-us.component';
+import { SkicamsComponent } from './containers/skicams/skicams.component';
+import { ContactComponent } from './containers/contact/contact.component';
 
 const appRoutes: Routes = [
   {
