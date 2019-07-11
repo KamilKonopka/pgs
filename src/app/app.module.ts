@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app.routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '../layout/header/header.component';
 import { MainComponent } from '../layout/main/main.component';
@@ -13,8 +13,7 @@ import { SkicamsComponent } from './components/skicams/skicams.component';
 import { ApiService } from './services/api.service';
 import { CardComponent } from "./components/card/card.component";
 import {CamBoxComponent} from "./components/cam-box/cam-box.component";
-
-
+import {ApiInterceptor} from "./services/api.interceptor";
 
 @NgModule({
   declarations: [
@@ -35,7 +34,11 @@ import {CamBoxComponent} from "./components/cam-box/cam-box.component";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
