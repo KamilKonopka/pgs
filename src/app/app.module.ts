@@ -12,6 +12,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { SkicamsComponent } from './components/skicams/skicams.component';
 import { ApiService } from './services/api.service';
 import { CardComponent } from "./components/card/card.component";
+import {CamBoxComponent} from "./components/cam-box/cam-box.component";
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { CardComponent } from "./components/card/card.component";
     ContactComponent,
     SkicamsComponent,
     CardComponent,
+    CamBoxComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,11 @@
 /* Abstracts */
 @import 'scss/abstracts/variables';
 @import 'scss/abstracts/mixins';
-@import 'scss/abstracts/functions';
 
 /* Base */
-@import 'scss/base/animations';
 @import 'scss/base/base';
 @import 'scss/base/typography';
 @import 'scss/base/utilities';
-
-/*Components*/
-@import 'layout/header/header.component.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 

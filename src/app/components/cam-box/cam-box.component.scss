@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  flex-grow: 1;
   @include card;
-  width: 50%;
   .heading-primary {
     padding-top: 2rem;
     text-align: center;
@@ -24,7 +24,7 @@
   &--img {
     max-width: 100%;
     line-height: 1;
-    height: 270px;
+    height: 27rem;
     object-fit: fill;
     overflow: hidden;
   }
