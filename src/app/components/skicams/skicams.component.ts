@@ -1,23 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { BalmeModel } from '../../interfaces/balme.model';
-import { throwError } from 'rxjs';
-import { BobbioModel } from '../../interfaces/bobbio.model';
-import {filter, map} from "rxjs/operators";
-import {CamsModel} from "../../interfaces/cams.model";
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import { CamsModel } from '../../interfaces/cams.model';
+import * as _ from 'lodash';
 
 @Component ({
   selector: 'app-skicams',
   templateUrl: './skicams.component.html',
   styleUrls: ['./skicams.component.scss']
 })
-export class SkicamsComponent implements OnInit, OnDestroy {
+export class SkicamsComponent implements OnInit {
 
-  private subscription;
-  cam1Data: BalmeModel;
-  cam2Data: BobbioModel;
-  date = new Date();
-  expectedCams: string[] = ['Bielmonte', 'Passo dello Stelvio'];
+  cams$: Observable<CamsModel[]>;
+  acceptedCams: string[] = ['Bielmonte', 'Passo dello Stelvio'];
 
   constructor(public http: ApiService) { }
 
@@ -25,29 +21,33 @@ export class SkicamsComponent implements OnInit, OnDestroy {
     this.getCamsData();
   }
 
-  ngOnDestroy() {
-    this.unsubscribeFromCamsData();
-  }
-
   getCamsData() {
-    this.subscription = this.http.getHttp().pipe(
+    this.cams$ = this.http.getHttp().pipe(
       map((data) => {
         const camsArray = Object.values(data).map(
           (el: CamsModel) => {
-            if (this.expectedCams.includes(el.name)) {
-              return el;
-            }
+            return this.acceptedCams.includes(el.name) ? this.parseCamsModel(el) : undefined;
           });
         console.log(camsArray.filter(el => el !== undefined));
-      },
-        (err) => {
-          throwError('Cannot load the data', err);
-        }),
-    ).subscribe();
+        return camsArray.filter(el => el !== undefined);
+      }),
+    );
   }
 
-  unsubscribeFromCamsData() {
-    this.subscription.unsubscribe();
+  getFirstTwoItems(object: Object, count: number) {
+    return _.chain(object).keys().sort().take(count).reduce((memo, current) => {
+      memo[current] = object[current];
+      return memo;
+    }, {}).value();
+  }
+
+  parseCamsModel(cam: CamsModel): CamsModel {
+    const newElement: CamsModel = {
+      ...cam,
+      cams: this.getFirstTwoItems(cam.cams, 2),
+    };
+    newElement.camsArray = [...Object.values(newElement.cams)];
+    return newElement;
   }
 }
 

@@ -1,0 +1,38 @@
+@import '../../../scss/abstracts/mixins';
+@import '../../../scss/abstracts/variables';
+@import '../../../scss/base/typography';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @include card;
+  width: 50%;
+  .heading-primary {
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  &--date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem .8rem;
+    font-size: 1.1rem;
+    color: $grey-light;
+  }
+  &--img {
+    max-width: 100%;
+    line-height: 1;
+    height: 270px;
+    object-fit: fill;
+    overflow: hidden;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+}
