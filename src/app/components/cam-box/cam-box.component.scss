@@ -5,8 +5,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  position: relative;
   flex-grow: 1;
+  height: 100%;
   @include card;
   .heading-primary {
     padding-top: 2rem;
@@ -14,9 +14,8 @@
   }
 
   &--date {
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: flex;
+    justify-content: flex-end;
     padding: 1rem .8rem;
     font-size: 1.1rem;
     color: $grey-light;
@@ -24,15 +23,8 @@
   &--img {
     max-width: 100%;
     line-height: 1;
-    height: 27rem;
-    object-fit: fill;
+    height: 45rem;
+    object-fit: cover;
     overflow: hidden;
-  }
-
-  @include respond(phone) {
-    width: 100%;
-    &:not(:last-child) {
-      margin-bottom: 3rem;
-    }
   }
 }

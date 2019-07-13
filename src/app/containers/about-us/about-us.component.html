@@ -1,7 +1,5 @@
-<main class="main">
-    <div class="container">
-        <div class="main__row u-margin-top u-margin-bottom">
-            <app-card *ngFor="let card of cards" class="card" [card]="card"></app-card>
-        </div>
-    </div>
-  </main>
+<main class="container">
+  <div class="cards-box">
+    <app-card *ngFor="let card of cards" class="card" [card]="card"></app-card>
+  </div>
+</main>

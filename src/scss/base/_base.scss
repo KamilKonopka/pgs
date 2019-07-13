@@ -3,40 +3,46 @@
 ::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
 html {
-  height: 100%;
-  // this definces what 1rem is
-  font-size: 62.5%; // 10px
+  box-sizing: border-box;
+  font-size: 62.5%;
 
-  @include respond(tab-land) { // width < 1200px ?
-      font-size: 56.25%; // 9px
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
   }
-
-  @include respond(tab-port) { // width < 900px ?
-      font-size: 50%; //8px
-  }
-
-  @include respond(big-desktop) {
-      font-size: 75%; // 12px
-  }
-
+  //
+  //@include respond(tab-land) { // width < 1200px ?
+  //    font-size: 56.25%; // 9px
+  //}
+  //
+  //@include respond(tab-port) { // width < 900px ?
+  //    font-size: 50%; //8px
+  //}
+  //
+  //@include respond(big-desktop) {
+  //    font-size: 75%; // 12px
+  //}
 }
 
 body {
-  height: 100%;
-  box-sizing: border-box;
   font-family: $font-roboto;
+  font-weight: 400;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  color: #000000;
 
-  @include respond(tab-port) {
-      padding: 0;
-  }
+  //@include respond(tab-port) {
+  //    padding: 0;
+  //}
 }
 
+.container {
+  @include displayGrid;
+}
 
 ::selection {
   background-color: $primary-color;

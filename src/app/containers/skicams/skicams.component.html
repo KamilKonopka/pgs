@@ -1,7 +1,5 @@
-<div class="skicams">
-  <div class="container">
-  <div class="skicams__cardbox u-margin-top u-margin-bottom" *ngIf="(cams$ | async)?.length">
+<div class="container">
+  <div class="skicams-wrapper" *ngIf="(cams$ | async)?.length">
     <app-cam-box *ngFor="let cam of (cams$ | async)" [cam]="cam"></app-cam-box>
   </div>
-</div>
 </div>

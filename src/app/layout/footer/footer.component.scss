@@ -1,0 +1,20 @@
+@import '../../../scss/abstracts/variables';
+@import '../../../scss/abstracts/mixins';
+@import '../../../scss/base/utilities';
+
+
+.footer {
+  background-color: $grey-dark;
+  box-shadow: 0 -.2rem .2rem 0 rgba($grey-medium, 0.2);
+  color: $grey-light;
+  display: grid;
+
+  &-content {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+      align-items: start;
+      border-top: 1px solid $secondary-color;
+      padding-top: 2rem;
+      text-align: center;
+    }
+}
