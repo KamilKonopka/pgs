@@ -24,96 +24,95 @@
       padding: 0;
       width: 100%;
     }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
 
-    &__form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      position: relative;
+    &-input {
+      @include inputsStyling;
+      padding-bottom: .6rem;
+      margin: 1rem 0;
+      display: block;
+      transition: all .3s;
+    }
 
-      &--input {
-        @include inputsStyling;
-        padding-bottom: .6rem;
-        margin: 1rem 0;
-        display: block;
-        transition: all .3s;
+    &-label {
+      color: $grey-light;
+      font-size: 1.2rem;
+      font-weight: 400;
+      display: block;
+      margin-top: .7rem;
+      transform: translateY(-3.7rem);
+      transition: all .3s ease-out;
+      &:after {
+        content: ' *';
+        color: red;
       }
-
-      &--label {
-        color: $grey-light;
-        font-size: 1.2rem;
-        font-weight: 400;
-        display: block;
-        margin-top: .7rem;
-        transform: translateY(-3.7rem);
-        transition: all .3s ease-out;
-        &:after {
-          content: ' *';
-          color: red;
-        }
-        &:hover,
-        &:visited,
-        &:active {
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(3.7rem);
-        }
-      }
-
-
-      &--textarea {
-        margin-top: 8rem;
-        @include inputsStyling;
-        resize: none;
-        line-height: .8;
-      }
-
-      &--button {
-        cursor: pointer;
-        outline: none;
-        padding: .8rem 2rem;
-        margin-top: 3rem;
-        color: $color-white;
-        background-color: $tertiary-color;
-        border: none;
-        max-width: 8rem;
-        border-radius: 3px;
-        box-shadow: .2rem .1rem .1rem rgba($grey-dark, .2);
-        text-decoration: none;
-        text-transform: uppercase;
-        align-self: flex-end;
-
-        &:hover {
-          background-color: darken($tertiary-color, 10%);
-          transition: 1s;
-        }
-      }
-
-      &--error {
-        color: $primary-color;
-        font-size: 1.2rem;
-      }
-
-      &--success {
-        color: green;
-        font-size: 1.2rem;
-      }
-
-      @include respond (tab-port) {
-        display: flex;
-        justify-content: center;
-      }
-
-      @include respond (phone) {
-        width: 100%;
-        padding: 6rem;
-      }
-
-      @include respond (phone-small) {
-        width: 100%;
-        padding: 3rem;
+      &:hover,
+      &:visited,
+      &:active {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(3.7rem);
       }
     }
-  }
 
+
+    &-textarea {
+      margin-top: 8rem;
+      @include inputsStyling;
+      resize: none;
+      line-height: .8;
+    }
+
+    &-button {
+      cursor: pointer;
+      outline: none;
+      padding: .8rem 2rem;
+      margin-top: 3rem;
+      color: $color-white;
+      background-color: $tertiary-color;
+      border: none;
+      max-width: 8rem;
+      border-radius: 3px;
+      box-shadow: .2rem .1rem .1rem rgba($grey-dark, .2);
+      text-decoration: none;
+      text-transform: uppercase;
+      align-self: flex-end;
+
+      &:hover {
+        background-color: darken($tertiary-color, 10%);
+        transition: 1s;
+      }
+    }
+
+    &-error {
+      color: $primary-color;
+      font-size: 1.2rem;
+      min-height: 2rem;
+    }
+
+    &-success {
+      color: green;
+      font-size: 1.2rem;
+    }
+
+    @include respond (tab-port) {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include respond (phone) {
+      width: 100%;
+      padding: 6rem;
+    }
+
+    @include respond (phone-small) {
+      width: 100%;
+      padding: 3rem;
+    }
+  }
 }

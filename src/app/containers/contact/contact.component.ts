@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {VALIDATION_MESSAGE} from "../../models/validation-message.model";
 
 @Component({
@@ -11,13 +11,28 @@ import {VALIDATION_MESSAGE} from "../../models/validation-message.model";
 export class ContactComponent implements OnInit {
 
   public form: FormGroup;
-  public formStatus = true;
   public isFormValidated = false;
   public isFormValid: boolean;
   public message: string;
 
+  get cssClasses(): Object {
+    const cssClasses = {
+      'valid-feedback': this.isFormValid,
+      'invalid-feedback': !this.isFormValid,
+    };
+    return this.isFormValidated ? cssClasses : {};
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {}
+
   ngOnInit() {
-    this.form = this.buildForm();
+    this.form = this.formBuilder.group({
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      message: new FormControl(null),
+    });
   }
 
   buildForm(): FormGroup {
@@ -28,7 +43,7 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  validateForm() {
+  onSubmit() {
     this.isFormValidated = true;
     this.message = this.parseErrorMessage();
   }
