@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {VALIDATION_MESSAGE} from "../../models/validation-message.model";
 
 @Component({
   selector: 'app-contact',
@@ -9,13 +10,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export class ContactComponent implements OnInit {
 
-  contactForm: FormGroup;
-  filledFormData = new FilledContactForm();
-  formStatus = true;
-  formProcessed = false;
+  public form: FormGroup;
+  public formStatus = true;
+  public isFormValidated = false;
+  public isFormValid: boolean;
+  public message: string;
 
   ngOnInit() {
-    this.contactForm = new FormGroup({
+    this.form = this.buildForm();
+  }
+
+  buildForm(): FormGroup {
+    return new FormGroup({
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       message: new FormControl(null)
@@ -23,26 +29,28 @@ export class ContactComponent implements OnInit {
   }
 
   validateForm() {
-    this.assignValues();
-    this.formStatus = this.contactForm.status !== 'INVALID';
-    this.formProcessed = true;
+    this.isFormValidated = true;
+    this.message = this.parseErrorMessage();
   }
 
-  assignValues() {
-    this.filledFormData.name = this.contactForm.value.name;
-    this.filledFormData.email = this.contactForm.value.email;
-    this.filledFormData.message = this.contactForm.value.message;
+  parseErrorMessage(): string {
+    const nameField = this.form && this.form.get('name');
+    const emailField = this.form && this.form.get('email');
+    let message;
+    if (this.form.valid) {
+      this.isFormValid = true;
+      message = VALIDATION_MESSAGE.valid;
+    } else {
+      this.isFormValid = false;
+      message = VALIDATION_MESSAGE.invalid;
+      !nameField.valid ? message += ` ${VALIDATION_MESSAGE.noName}` : message;
+      emailField.value === null ? message += ` ${VALIDATION_MESSAGE.noEmail}` :
+        (emailField.valid ? message : message += ` ${VALIDATION_MESSAGE.wrongEmail}`);
+    }
+    return message;
   }
 
   resetFormValues() {
-    this.contactForm.reset();
+    this.form.reset();
   }
-}
-
-class FilledContactForm {
-  constructor (
-    public message?: string,
-    public name?: string,
-    public email?: string
-  ) {}
 }

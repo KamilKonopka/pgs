@@ -1,18 +1,37 @@
 <section class="section">
   <div class="container">
     <div class="section__box">
-      <form [formGroup]="contactForm" class="section__box__form" (ngSubmit)="validateForm()">
-        <input type="text" class="section__box__form--input" name="Name" id="name" formControlName="name">
-        <label for="name" class="section__box__form--label" *ngIf="!contactForm.get('name').value">Name</label>
-        <div class="section__box__form--error" *ngIf="!formStatus && !contactForm.get('name').valid">Name field is required!</div>
-        <input type="text" class="section__box__form--input" name="Email" id="email" formControlName="email">
-        <label for="email" class="section__box__form--label" *ngIf="!contactForm.get('email').value">Email</label>
-        <div class="section__box__form--error" *ngIf="!formStatus && !contactForm.get('email').valid">Wrong email address formatting!</div>
-        <div class="section__box__form--error" *ngIf="!formStatus && contactForm.get('email').value === null">Your email is required!</div>
-        <textarea type="text" class="section__box__form--textarea" name="Message" placeholder="Message" id="message" formControlName="message"></textarea>
-        <div class="section__box__form--success" *ngIf="formProcessed && contactForm.get('email').value !== null && contactForm.get('email').valid && contactForm.get('name').valid">Your form is valid!</div>
-        <button type="submit" class="section__box__form--button">Send</button>
+      <form [formGroup]="form" class="section__box__form" (ngSubmit)="validateForm()">
+        <input type="text"
+               class="section__box__form--input"
+               name="Name" id="name"
+               formControlName="name">
+        <label for="name"
+               class="section__box__form--label"
+               *ngIf="!form.get('name').value">Name</label>
+        <div class="section__box__form--error"
+             *ngIf="!isFormValid">{{ message }}</div>
+
+        <input type="text"
+               class="section__box__form--input"
+               name="Email" id="email"
+               formControlName="email">
+        <label for="email"
+               class="section__box__form--label"
+               *ngIf="!form.get('email').value">Email</label>
+        <div class="section__box__form--error"
+             *ngIf="!isFormValid">{{ message }}</div>
+
+        <textarea type="text"
+                  class="section__box__form--textarea"
+                  name="Message" placeholder="Message"
+                  id="message" formControlName="message"></textarea>
+        <div class="section__box__form" *ngIf="isFormValidated">{{ message }}</div>
+
+        <button type="submit"
+                class="section__box__form--button">Send</button>
       </form>
     </div>
   </div>
 </section>
+
