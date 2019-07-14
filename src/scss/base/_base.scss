@@ -40,9 +40,9 @@ body {
   //}
 }
 
-.container {
-  @include displayGrid;
-}
+//.container {
+//  @include displayGrid;
+//}
 
 ::selection {
   background-color: $primary-color;

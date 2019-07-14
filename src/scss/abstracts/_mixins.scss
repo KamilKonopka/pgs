@@ -5,6 +5,19 @@
   box-shadow: $box-shadow;
   line-height: 0.7;
 }
+
+@mixin pageWidth {
+  grid-column: 2 / 5;
+}
+
+@mixin fullWidth {
+  grid-column: 1 / 6;
+}
+@mixin gridTemplateColumns {
+  grid-template-columns: minmax(1rem, auto) repeat(3, minmax(25rem, 35rem)) minmax(1rem, auto);
+  grid-column-gap: 3rem;
+  grid-row-gap: 4rem;
+}
 //}
 //
 //@mixin box {
@@ -69,9 +82,9 @@ $breakpoint argument choices:
 //}
 
 
-@mixin displayGrid {
-  display: grid;
-  grid-template-columns: minmax(1rem, auto) repeat(3, minmax(25rem, 35rem)) minmax(1rem, auto);
-  grid-template-rows: 1rem auto auto;
-  grid-gap: 3rem;
-}
+//@mixin displayGrid {
+//  display: grid;
+//  grid-template-columns: minmax(1rem, auto) repeat(3, minmax(25rem, 35rem)) minmax(1rem, auto);
+//  grid-template-rows: 1rem auto auto;
+//  grid-gap: 3rem;
+//}
