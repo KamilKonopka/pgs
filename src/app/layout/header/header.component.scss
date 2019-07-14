@@ -8,6 +8,10 @@
   @include fullWidth;
   display: grid;
   @include gridTemplateColumns;
+
+  @media only screen and (max-width: 715px) {
+    grid-template-columns: minmax(1rem, auto) 1fr minmax(1rem, auto);
+  }
 }
 .header {
   @include pageWidth;
@@ -15,6 +19,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3rem;
+
+  @media only screen and (max-width: 420px) {
+    grid-template-columns: minmax(1rem, auto) 1fr minmax(1rem, auto);
+  }
 }
 
 .logo {
@@ -52,5 +60,9 @@
          }
        }
     }
+  }
+
+  @media screen and (max-width: 715px) {
+    grid-column: 1 / 3;
   }
 }
