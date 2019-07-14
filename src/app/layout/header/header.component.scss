@@ -8,7 +8,6 @@
   @include fullWidth;
   display: grid;
   @include gridTemplateColumns;
-  grid-template-rows: auto auto auto auto;
 }
 .header {
   @include pageWidth;

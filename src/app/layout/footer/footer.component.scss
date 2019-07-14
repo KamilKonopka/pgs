@@ -21,5 +21,9 @@
     padding-top: 2rem;
     padding-bottom: 3rem;
     text-align: center;
+
+    @media screen and (max-width: 715px) {
+      grid-column: 2 / 3;
+    }
   }
 }
