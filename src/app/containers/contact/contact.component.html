@@ -1,29 +1,25 @@
   <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <label for="name"
+           class="form-label"
+           [hidden]="form.get('name').value">Name</label>
     <input type="text"
            class="form-input"
            name="Name" id="name"
            formControlName="name">
-    <label for="name"
-           class="form-label"
-           *ngIf="!form.get('name').value">Name</label>
-    <div class="form-error"
-         *ngIf="!isFormValid">{{ message }}</div>
 
+    <label for="email"
+           class="form-label"
+           [hidden]="form.get('email').value">Email</label>
     <input type="text"
            class="form-input"
            name="Email" id="email"
            formControlName="email">
-    <label for="email"
-           class="form-label"
-           *ngIf="!form.get('email').value">Email</label>
-    <div class="form-error"
-         *ngIf="!isFormValid">{{ message }}</div>
 
     <textarea type="text"
               class="form-textarea"
               name="Message" placeholder="Message"
               id="message" formControlName="message"></textarea>
-    <div class="form-error" *ngIf="isFormValidated">{{ message }}</div>
+    <div [ngClass]="cssValidationClasses" *ngIf="isFormValidated">{{ message }}</div>
 
     <button type="submit"
             class="form-button">Send</button>

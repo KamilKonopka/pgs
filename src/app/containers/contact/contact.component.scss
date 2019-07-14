@@ -21,30 +21,18 @@
 
     &-input {
       @include inputsStyling;
-      padding-bottom: .6rem;
       margin: 1rem 0;
-      display: block;
       transition: all .3s;
+      min-height: 3rem;
     }
 
     &-label {
-      color: $grey-light;
-      font-size: 1.2rem;
-      font-weight: 400;
-      display: block;
-      margin-top: .7rem;
-      transform: translateY(-3.7rem);
+      @include placeholder;
+      transform: translateY(2.8rem);
       transition: all .3s ease-out;
       &:after {
         content: ' *';
         color: red;
-      }
-      &:hover,
-      &:visited,
-      &:active {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(3.7rem);
       }
     }
 
@@ -53,7 +41,10 @@
       margin-top: 8rem;
       @include inputsStyling;
       resize: none;
-      line-height: .8;
+      line-height: 1;
+      &::placeholder {
+        @include placeholder;
+      }
     }
 
     &-button {
@@ -79,12 +70,11 @@
 
     &-error {
       color: $primary-color;
-      font-size: 1.2rem;
-      min-height: 2rem;
+      @include formMessage;
     }
 
     &-success {
       color: green;
-      font-size: 1.2rem;
+      @include formMessage;
     }
 }

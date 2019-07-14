@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import {VALIDATION_MESSAGE} from "../../models/validation-message.model";
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { VALIDATION_MESSAGE } from "../../models/validation-message.model";
 
 @Component({
   selector: 'app-contact',
@@ -15,17 +15,16 @@ export class ContactComponent implements OnInit {
   public isFormValid: boolean;
   public message: string;
 
-  get cssClasses(): Object {
-    const cssClasses = {
-      'valid-feedback': this.isFormValid,
-      'invalid-feedback': !this.isFormValid,
-    };
-    return this.isFormValidated ? cssClasses : {};
-  }
-
   constructor(
     private formBuilder: FormBuilder,
   ) {}
+
+  get cssValidationClasses(): Object {
+    return {
+      'form-error': !this.isFormValid,
+      'form-success': this.isFormValid,
+    }
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
