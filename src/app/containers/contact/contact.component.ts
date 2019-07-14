@@ -34,14 +34,6 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  buildForm(): FormGroup {
-    return new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      message: new FormControl(null)
-    });
-  }
-
   onSubmit() {
     this.isFormValidated = true;
     this.message = this.parseErrorMessage();

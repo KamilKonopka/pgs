@@ -17,6 +17,10 @@
   grid-template-columns: minmax(1rem, auto) repeat(3, minmax(25rem, 35rem)) minmax(1rem, auto);
   grid-column-gap: 3rem;
   grid-row-gap: 4rem;
+
+  @media screen and (min-width: 320px) {
+    grid-template-columns: minmax(.5rem, auto) 1fr minmax(.5rem, auto);
+  }
 }
 
 @mixin inputsStyling {

@@ -3,7 +3,7 @@
 
 :host {
   display: grid;
-  grid-template-rows: auto 1fr 1fr 1fr auto;
+  grid-template-rows: auto repeat(3, 1fr) auto;
   @include gridTemplateColumns;
   min-height: 100vh;
   background-color: $color-white-dirty;
