@@ -2,42 +2,25 @@
 @import '../../../scss/abstracts/mixins';
 
 :host {
-  //display: grid;
-  //flex-grow: 1;
-  //height: 100%;
-  //justify-content: center;
-  //align-items: center;
+  display: grid;
+  grid-template-rows: 2fr 6fr 2fr;
+  grid-template-columns: 2fr 4fr 2fr;
+  height: 100%;
+  align-items: stretch;
 }
 
-.section-wrapper {
-  //grid-column: 2 /5;
-  //grid-row: 3 / end;
-  //align-items: stretch;
-  //display: grid;
-  //grid-template-columns: repeat(3, 1fr);
-    @include card;
-    //line-height: 1;
-    //border-radius: 3px;
-    //padding: 6rem 8rem;
-    //
-    //@include respond (phone) {
-    //  padding: 0;
-    //  width: 100%;
-    //}
-    //
-    //@include respond (phone-small) {
-    //  padding: 0;
-    //  width: 100%;
-    //}
-  }
   .form {
+    @include card;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     flex-grow: 1;
-    position: relative;
+    padding: 0 9rem;
 
     &-input {
-      //@include inputsStyling;
+      @include inputsStyling;
       padding-bottom: .6rem;
       margin: 1rem 0;
       display: block;
@@ -68,7 +51,7 @@
 
     &-textarea {
       margin-top: 8rem;
-      //@include inputsStyling;
+      @include inputsStyling;
       resize: none;
       line-height: .8;
     }
@@ -76,13 +59,13 @@
     &-button {
       cursor: pointer;
       outline: none;
-      padding: .8rem 2rem;
+      padding: 1rem 2.2rem;
       margin-top: 3rem;
       color: $color-white;
       background-color: $tertiary-color;
       border: none;
-      max-width: 8rem;
-      border-radius: 3px;
+      max-width: 10rem;
+      border-radius: .3rem;
       box-shadow: .2rem .1rem .1rem rgba($grey-dark, .2);
       text-decoration: none;
       text-transform: uppercase;
@@ -90,7 +73,7 @@
 
       &:hover {
         background-color: darken($tertiary-color, 10%);
-        transition: 1s;
+        transition: .5s;
       }
     }
 

@@ -18,3 +18,93 @@
   grid-column-gap: 3rem;
   grid-row-gap: 4rem;
 }
+
+@mixin inputsStyling {
+  border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid lighten($grey-light, 5%);
+      font-family: $font-roboto;
+      font-size: 1.2rem;
+      transition: all .5s;
+      color: $grey-light;
+      min-width: 25rem;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
+
+      &:focus:invalid {
+        border-bottom: 1px solid $grey-dark;
+      }
+    }
+//
+//@mixin box {
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: center;
+//}
+//
+//@mixin inputsStyling {
+//  border-top: none;
+//      border-left: none;
+//      border-right: none;
+//      border-bottom: 1px solid lighten($grey-light, 5%);
+//      font-family: $font-roboto;
+//      font-size: 1.2rem;
+//      transition: all .5s;
+//      color: $grey-light;
+//      min-width: 25rem;
+//
+//      &:focus {
+//        outline: none;
+//        border-bottom: 1px solid $primary-color;
+//      }
+//
+//      &:focus:invalid {
+//        border-bottom: 1px solid $grey-dark;
+//      }
+//    }
+// Media query manager
+/*
+0 - 320px Phone-small
+320 - 600 Phone
+600 - 900px Tablet portrait
+900 - 1200px Tablet landscape
+1200 - 1800px  desktop
+1800px + Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+*/
+//
+//@mixin respond ($breakpoint) {
+//  @if $breakpoint == phone-small {
+//    @media only screen and (max-width: 20em) {@content}; // 320px
+//}
+//  @if $breakpoint == phone {
+//      @media only screen and (max-width: 37.5em) {@content}; // 600px
+//  }
+//  @if $breakpoint == tab-port {
+//      @media only screen and (max-width: 56.25em) {@content}; // 900px
+//  }
+//  @if $breakpoint == tab-land {
+//      @media only screen and (max-width: 75em) {@content}; // 1200px
+//  }
+//  @if $breakpoint == big-desktop {
+//      @media only screen and (min-width: 112.5em) {@content}; // 1800px
+//  }
+//}
+
+
+//@mixin displayGrid {
+//  display: grid;
+//  grid-template-columns: minmax(1rem, auto) repeat(3, minmax(25rem, 35rem)) minmax(1rem, auto);
+//  grid-template-rows: 1rem auto auto;
+//  grid-gap: 3rem;
+//}

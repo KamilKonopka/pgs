@@ -1,63 +1,30 @@
-<section class="container">
-    <div class="section-wrapper">
-      <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
-        <input type="text"
-               class="form-input"
-               name="Name" id="name"
-               formControlName="name">
-        <label for="name"
-               class="form-label"
-               *ngIf="!form.get('name').value">Name</label>
-        <div class="form-error"
-             *ngIf="!isFormValid">{{ message }}</div>
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <input type="text"
+           class="form-input"
+           name="Name" id="name"
+           formControlName="name">
+    <label for="name"
+           class="form-label"
+           *ngIf="!form.get('name').value">Name</label>
+    <div class="form-error"
+         *ngIf="!isFormValid">{{ message }}</div>
 
-        <input type="text"
-               class="form-input"
-               name="Email" id="email"
-               formControlName="email">
-        <label for="email"
-               class="form-label"
-               *ngIf="!form.get('email').value">Email</label>
-        <div class="form-error"
-             *ngIf="!isFormValid">{{ message }}</div>
+    <input type="text"
+           class="form-input"
+           name="Email" id="email"
+           formControlName="email">
+    <label for="email"
+           class="form-label"
+           *ngIf="!form.get('email').value">Email</label>
+    <div class="form-error"
+         *ngIf="!isFormValid">{{ message }}</div>
 
-        <textarea type="text"
-                  class="form-textarea"
-                  name="Message" placeholder="Message"
-                  id="message" formControlName="message"></textarea>
-        <div class="form-error" *ngIf="isFormValidated">{{ message }}</div>
+    <textarea type="text"
+              class="form-textarea"
+              name="Message" placeholder="Message"
+              id="message" formControlName="message"></textarea>
+    <div class="form-error" *ngIf="isFormValidated">{{ message }}</div>
 
-        <button type="submit"
-                class="form-button">Send</button>
-      </form>
-    </div>
-</section>
-
-<!--<div class="container">-->
-<!--  <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">-->
-<!--    <label for="name">Name</label>-->
-<!--    <input formControlName="name"-->
-<!--           type="text"-->
-<!--           class="form-control"-->
-<!--           id="name"-->
-<!--           name="Name"-->
-<!--           placeholder="Name">-->
-<!--    <div *ngIf="!isFormValid">{{message}}</div>-->
-<!--    <label for="email">Email</label>-->
-<!--    <input formControlName="email"-->
-<!--           type="text"-->
-<!--           class="form-control"-->
-<!--           id="email"-->
-<!--           name="Email"-->
-<!--           placeholder="Email">-->
-<!--    <div *ngIf="!isFormValid">{{message}}</div>-->
-<!--    <label for="message">Message</label>-->
-<!--    <textarea formControlName="message"-->
-<!--              class="form-control"-->
-<!--              id="message"-->
-<!--              name="Message"-->
-<!--              placeholder="Message"></textarea>-->
-<!--    <div *ngIf="!isFormValid">{{message}}</div>-->
-<!--    <button class="btn btn-primary" type="submit">Send</button>-->
-<!--  </form>-->
-<!--</div>-->
+    <button type="submit"
+            class="form-button">Send</button>
+  </form>
