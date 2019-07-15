@@ -7,6 +7,10 @@
   grid-template-columns: 2fr 4fr 2fr;
   height: 100%;
   align-items: stretch;
+
+  @media only screen and (max-width: 420px) {
+    grid-template-columns: minmax(min-content, max-content);
+  }
 }
 
   .form {
@@ -18,6 +22,11 @@
     justify-content: center;
     flex-grow: 1;
     padding: 0 9rem;
+
+    @media only screen and (max-width: 420px) {
+      grid-template-columns: 1fr;
+      padding: 0 4rem;
+    }
 
     &-input {
       @include inputsStyling;
