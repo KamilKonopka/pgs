@@ -15,6 +15,10 @@
   display: grid;
   @include gridTemplateColumns;
 
+  @media screen and (max-width: 900px) {
+    grid-column: 1 / 4;
+  }
+
   &-content {
     grid-column: 3 / 4;
     border-top: 1px solid $secondary-color;

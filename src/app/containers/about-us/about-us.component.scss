@@ -5,8 +5,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  @media screen and (max-width: 715px) {
+  @media screen and (max-width: 900px) {
     grid-template-columns: minmax(min-content, max-content);
-    align-items: center;
+    justify-content: center;
   }
 }

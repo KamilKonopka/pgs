@@ -14,7 +14,7 @@
   grid-column: 1 / 6;
 }
 @mixin gridTemplateColumns {
-  grid-template-columns: minmax(1rem, auto) repeat(3, minmax(25rem, 35rem)) minmax(1rem, auto);
+  grid-template-columns: minmax(1rem, auto) repeat(3, minmax(20rem, 35rem)) minmax(1rem, auto);
   grid-column-gap: 3rem;
   grid-row-gap: 4rem;
 
