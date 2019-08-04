@@ -28,8 +28,7 @@ export class SkicamsComponent implements OnInit {
           (el: CamsModel) => {
             return this.acceptedCams.includes(el.name) ? this.parseCamsModel(el) : undefined;
           });
-        console.log(camsArray.filter(el => el !== undefined));
-        return camsArray.filter(el => el !== undefined);
+        return camsArray.filter(el => !!el);
       }),
     );
   }
